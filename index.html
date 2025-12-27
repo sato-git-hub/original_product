@@ -26,6 +26,7 @@
   <div class="click-area top"></div>
   <div class="click-area bottom"></div>
 </div>
+<div class="menu-bar"></div>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script>
   const swiper = new Swiper('.swiper', {
@@ -54,6 +55,8 @@ document.addEventListener("pointerdown", (e) => {
     }
 // 画面をタッチして、またはタッチペンで操作する場合
   }else if (e.pointerType === "touch"|| e.pointerType === "pen"){
+    if (!e.target.closest(".swiper"))return;
+    if (e.target.closest(".menu-bar"))
     startY = e.clientY;
     bool = true;
     startTranslateY = swiper.getTranslate()
