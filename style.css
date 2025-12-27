@@ -1,0 +1,26 @@
+.swiper {
+  width: 100%;
+  height: 100vh
+}
+
+.swiper-slide {
+  background-image: url(img/images.jpeg);
+  background-position: center ;
+  background-size: cover;
+}
+
+.click-area {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 35%;
+  z-index: 10;
+}
+
+.top {
+  top: 0
+}
+
+.bottom {
+  bottom: 0
+}
