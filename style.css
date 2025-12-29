@@ -24,3 +24,12 @@
 .bottom {
   bottom: 0
 }
+
+.menu-bar {
+  position: absolute;
+  bottom: 0px;
+  background-color: black;
+  height: 30px;
+  width: 100%;
+  z-index: 10;
+}
