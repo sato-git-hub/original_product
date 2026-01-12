@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- リセットCSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@4.0.0/destyle.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">スライド1</div>
+    <div class="swiper-slide">スライド2</div>
+  </div>
+  <div class="click-area top"></div>
+  <div class="click-area bottom"></div>
+</div>
+<div class="menu-bar"></div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+const swiper = new Swiper('.swiper', {
+  direction: 'vertical',
+  allowTouchMove: false,
+    mousewheel: {
+    forceToAxis: true,
+    sensitivity: 1,
+    thresholdDelta: 10, 
+    },
+});
+
+let startY = 0;
+let startTranslateY = 0;
+let bool = false;
+const wrapper = document.querySelector(".swiper-wrapper")
+
+document.addEventListener("pointerdown", (e) => {
+  //クリックした場所にスライドが存在した時だけ
+    if(!e.target.closest(".swiper"))return;
+  //クリックした場所にメニューバーが存在した時
+    if (e.target.closest(".menu-bar"))return;
+    startY = e.clientY;
+    bool = true;
+    startTranslateY = swiper.getTranslate()
+  })
+
+document.addEventListener("pointermove", (e) => {
+
+  if (!bool) return;
+
+  const diff = e.clientY - startY;
+  const newY = startTranslateY + diff;
+  swiper.setTransition(0);
+  swiper.setTranslate(newY)
+  }
+);
+
+document.addEventListener("pointerup", (e) => {
+
+  if (!bool) return;
+  bool = false;
+  const diff = e.clientY - startY;
+
+  if (diff > 300) {
+    swiper.slidePrev();
+  } else if (diff < -300) {
+    swiper.slideNext();
+  }else {
+    swiper.setTransition(300);
+    swiper.setTranslate(startTranslateY);
+  }
+}
+);
+
+</script>
+</body>
+</html>

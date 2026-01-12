@@ -1,0 +1,1 @@
+https://miro.com/app/live-embed/uXjVGSUHwCQ=/?embedMode=view_only_without_ui&moveToViewport=-8151%2C-6659%2C34630%2C21643&embedId=896433929131
