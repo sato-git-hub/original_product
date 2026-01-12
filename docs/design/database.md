@@ -74,6 +74,7 @@ Rails側でJSTに変換
 |request_id| int| |FOREIGN, UNIQUE(uk_tag_request)|||
 
 - creator_tags
+
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
 |-|-|-|-|-|-|
 |id| bigint | |PRIMARY||YES|
