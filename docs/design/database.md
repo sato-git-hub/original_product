@@ -23,7 +23,6 @@
 | lowest_amount |int|||||
 | target_amount |int|||||
 |status|enum| ||||
-Rails側でJSTに変換
 
 - messages
   
