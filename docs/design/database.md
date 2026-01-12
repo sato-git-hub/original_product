@@ -97,7 +97,7 @@ Rails側でJSTに変換
 |-|-|-|-|-|-|
 |id| bigint | |PRIMARY||YES|
 | blocker_id |int| |FOREIGN → users.id|||
-| blocked_id |int|||||
+| blocked_id |int| |FOREIGN → users.id|||
 
 - tags
 
