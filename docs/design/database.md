@@ -23,7 +23,19 @@
 | lowest_amount |int|||||
 | target_amount |int|||||
 |status|enum| ||||
-Rails側でJSTに変換
+|approval_status|enum| ||||
+
+※ approval_statusカラム
+0: draft       #下書き
+1: pending     # 承認待ち
+2: approved    # 承認済み
+3: rejected    # 却下
+4: cancelled   # 中止
+
+※ statusカラム 
+0: funding     # クラウドファンディング進行中
+1: succeeded   # 目標金額達成（成功）
+2: failed      # 失敗
 
 - messages
   
@@ -33,8 +45,11 @@ Rails側でJSTに変換
 | reciver_id| int| |FOREIGN　→ users.id|||
 | title |varchar(200)|||||
 | body| text | ||||
-| message_id|int| ||||
-|status|enum| ||||
+|status|enum| ||||　
+
+※ statusカラム 
+0: draft      #下書き
+1: sent       #送信済み
 
 - notifications
   
@@ -97,7 +112,7 @@ Rails側でJSTに変換
 |-|-|-|-|-|-|
 |id| bigint | |PRIMARY||YES|
 | blocker_id |int| |FOREIGN → users.id|||
-| blocked_id |int|||||
+| blocked_id |int| |FOREIGN → users.id|||
 
 - tags
 
