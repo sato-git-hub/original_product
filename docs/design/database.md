@@ -33,7 +33,6 @@
 4: cancelled   # 中止
 
 ※ statusカラム 
-
 0: funding     # クラウドファンディング進行中
 1: succeeded   # 目標金額達成（成功）
 2: failed      # 失敗
