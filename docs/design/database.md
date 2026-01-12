@@ -73,6 +73,14 @@ Rails側でJSTに変換
 |tag_id| int| |FOREIGN, UNIQUE(uk_tag_request)|||
 |request_id| int| |FOREIGN, UNIQUE(uk_tag_request)|||
 
+- creator_tags
+| カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
+|-|-|-|-|-|-|
+|id| bigint | |PRIMARY||YES|
+| creator_id |bigint| |FOREIGN, UNIQUE(uk_tag_creator)|||
+| tag_id |bigint| |FOREIGN, UNIQUE(uk_tag_creator)|||
+| score |int| ||||
+
 - portfolios
 
 | カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
@@ -89,3 +97,11 @@ Rails側でJSTに変換
 |id| bigint | |PRIMARY||YES|
 | blocker_id |int| |FOREIGN → users.id|||
 | blocked_id |int|||||
+
+- tags
+
+| カラム名 | データ型 |NULL |キー|初期値|AUTO INCREMENT|
+|-|-|-|-|-|-|
+|id| bigint | |PRIMARY||YES|
+| name|varchar(15)| ||||
+
